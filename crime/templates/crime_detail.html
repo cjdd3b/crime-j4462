@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Details about dispatch {{ crime.incident_num }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ crime.name }}</h1>
+
+<ul>
+    <li><strong>Incident number</strong>: {{ crime.incident_num }}</li>
+    <li><strong>Location</strong>: {{ crime.location }} {% if crime.apt_lot %} ({{ crime.apt_lot }}) {% endif %}</li>
+    <li><strong>Date/time</strong>: {{ crime.date_time }}</li>
+</ul>
+
+<p><img border="0" src="//maps.googleapis.com/maps/api/staticmap?center=Columbia,MO&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7C{{ crime.lat }},{{ crime.lng }}&sensor=false&key=AIzaSyBHzltlpZO7-M45CQN2kxw1j4Mo3T60ik0" alt="Dispatch to {{ crime.location }}" /></p>
+
+{% endblock %}

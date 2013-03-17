@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Recent police dispatches in Columbia{% endblock %}
+
+{% block content %}
+
+    <h1>List of recent crimes in Columbia</h1>
+
+    <table>
+
+    {% for c in crimes %}
+        <tr>
+
+            <td><a href="{% url detail c.incident_num %}">{{ c.incident_num }}</a></td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.location}}</td>
+            <td>{{ c.date_time }}</td>
+
+        </tr>
+    {% endfor %}
+
+    </ul>
+
+{% endblock %}
