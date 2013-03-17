@@ -1,4 +1,4 @@
-from data.models import Crime
+from crime.data.models import Crime
 from django.shortcuts import render_to_response
 
 

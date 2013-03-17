@@ -11,7 +11,7 @@ sources. On the other hand, the code is much, much more interesting.
 SO. Here's what we're going to do. First, everyone should install this app by typing the following into their
 command line. First, navigate to your Desktop (or working area of choice). Then copy and paste this and press enter:
 
-**git clone git@github.com:cjdd3b/crime-j4462.git newcrime**
+**git clone git://github.com/cjdd3b/crime-j4462.git newcrime**
 
 You should see a new folder called newcrime that will contain a bunch of files you're probably pretty familiar
 with by now. This is a working copy of the entire application we're trying to build, and from now on we'll be

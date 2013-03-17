@@ -20,9 +20,9 @@ urlpatterns = patterns('',
     # These are the new URLs we'll create. More documentation on those here:
     # https://docs.djangoproject.com/en/dev/topics/http/urls/
     
-    url('^$', 'data.views.index', name='index'),
+    url('^$', 'crime.data.views.index', name='index'),
 
-    url('^crime/(\d*)/$', 'data.views.detail', name='detail'), # Note the trailing comma. ALWAYS ADD ONE AFTER EVERY URL.
+    url('^crime/(\d*)/$', 'crime.data.views.detail', name='detail'), # Note the trailing comma. ALWAYS ADD ONE AFTER EVERY URL.
    
     # Whoa! What's with the weird (\d*/$) notation? These are called "regular expressions" and
     # you can read more about them here: http://www.tutorialspoint.com/python/python_reg_expressions.htm
