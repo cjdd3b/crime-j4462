@@ -1,9 +1,28 @@
 import os
 import django
 
-# Base paths
+# NOTE: These are a few settings that I put into EVERY SINGLE DJANGO PROJECT that I build. You don't
+# need to know how they work; the only thing you need to know is that they will make your life INFINITELY
+# EASIER. In fact, I would recommend copying them into your new projects when you start work on them after
+# the break (don't forget the two imports above).
+
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+PROJECT_NAME = 'crime'
+
+# These two settings (normally found further down in the document) can cause very obnoxious problems depending
+# on how your computer is set up. Setting them up like this (using the helpful settings tools above) avoids those
+# problems and allows things to just magically work. If you copy these into your new project settings files, be
+# sure to DELETE THE ONES DJANGO PLACES IN THE SETTINGS FILE BY DEFAULT. THERE SHOULD ONLY BE ONE STATIC_ROOT AND
+# TEMPLATE_DIRS SETTING IN YOUR SETTINGS FILE -- AND IT SHOULD BE THESE (rant over).
+
+STATIC_ROOT = os.path.join(SITE_ROOT, '%s/static' % PROJECT_NAME)
+
+TEMPLATE_DIRS = (
+    os.path.join(SITE_ROOT, '%s/templates' % PROJECT_NAME)
+)
+
+########## NORMAL DJANGO SETTINGS BEGIN HERE ###########
 
 # Django settings for crime project.
 
@@ -59,12 +78,6 @@ MEDIA_ROOT = ''
 # Examples: "http://example.com/media/", "http://media.example.com/"
 MEDIA_URL = ''
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(SITE_ROOT, 'crime/static')
-
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
@@ -108,10 +121,6 @@ ROOT_URLCONF = 'crime.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'crime.wsgi.application'
-
-TEMPLATE_DIRS = (
-    os.path.join(SITE_ROOT, 'crime/templates')
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
