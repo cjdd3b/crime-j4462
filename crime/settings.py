@@ -1,7 +1,7 @@
 import os
 import django
 
-# NOTE: These are a few settings that I put into EVERY SINGLE DJANGO PROJECT that I build. You don't
+# CHASE NOTE: These are a few settings that I put into EVERY SINGLE DJANGO PROJECT that I build. You don't
 # need to know how they work; the only thing you need to know is that they will make your life INFINITELY
 # EASIER. In fact, I would recommend copying them into your new projects when you start work on them after
 # the break (don't forget the two imports above).
@@ -34,6 +34,9 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+# CHASE NOTE: Remember, we care about the DATABASES setting. For development purposes, just set the engine
+# to sqlite3 as below and give your database a name. That's all you need to do!
 
 DATABASES = {
     'default': {
@@ -122,6 +125,10 @@ ROOT_URLCONF = 'crime.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'crime.wsgi.application'
 
+# CHASE NOTE: Remember, we also care about the INSTALLED_APPS setting. Two important things to
+# keep in mind here: One, uncomment the lines as noted to enable the admin (if you want it). And two:
+# ANY APP YOU CREATE AND WANT TO USE MUST BE ADDED TO THIS LIST. Note the 'crime.data' string below.
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,7 +140,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-
     
     'crime.data',
 )
